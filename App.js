@@ -4,6 +4,7 @@ import CardStyle from './src/CardStyle';
 import ClassComponent from './src/ClassComponent';
 import Photo from './src/Photo';
 import TestStyle from './src/TestStyle';
+import MyScreen from './src/MyScreen';
 
 const App = () => {
   return (
@@ -15,7 +16,8 @@ const App = () => {
           {/* <TestStyle /> */}
           {/* <Photo /> */}
           {/* <ClassComponent /> */}
-          <CardStyle />
+          {/* <CardStyle /> */}
+          <MyScreen />
 
         </ScrollView>
       </SafeAreaView>
