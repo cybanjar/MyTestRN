@@ -1,20 +1,49 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { TextField, View, Image, Text, Colors, Dialog, Card, Button } from 'react-native-ui-lib';
 import { StyleSheet, Alert} from 'react-native'
+// import Favorite from "./assets/icons/mdi_favorite.png";
+
+const onPressTitle = () => {
+    console.log("title pressed");
+};
 
 const MyScreen = () => {
+    const name = useState("Sarah");
+    const locate = useState("Brebes");
+
     return (
             <View style={styles.defaultMarginH} bgDark-2 flex padding-page>
 
-                <TextField style={styles.searching} placeholder="Searching..."/>
+                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
+                    <TextField hideUnderline style={styles.searching} placeholder="Searching..."/>
+                    <Image style={styles.favorite} source={require('./assets/icons/mdi_favorite.png')} />
+                </View>
 
-                <Image style={styles.photoProfile} source={{ uri: 'http://placeimg.com/50/50/people' }}/>
-                <Card  center padding-card marginB-s4>
-                    <Image cover borderRadius={8} source={{ uri: 'http://placeimg.com/500/500/people' }} />
-                    <Text style={styles.defaultMarginV} body>This is an example card </Text>
-                </Card>
+                <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-start'}}>
+                    <View>
+                        <Image style={styles.photoProfile} source={{ uri: 'http://placeimg.com/45/45/people' }}/>
+                    </View>
+                    
+                    <View>
+                        <Text style={styles.nameProfile} onPress={onPressTitle}>
+                            {name}
+                        </Text> 
+                        <Text dark50 style={styles.fontBody}>
+                            {locate}
+                        </Text> 
+                    </View>
+                </View>
+                
+                <View>
+                    <Card padding-card marginB-s4>
+                        <Image cover borderRadius={8} source={{ uri: 'http://placeimg.com/500/500/people' }} />
+                        <View margin-16 style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between'}}>
+                            <Text style={styles.fontTitle}>Anggur</Text>
+                            <Text dark50 style={styles.fontTitle}>Rp. 250.000</Text>
+                        </View>
+                    </Card>
+                </View>
 
-                <Button onPress={() => onSave()} label="Save" body bg-primaryColor square></Button>
             </View>
         )
     
@@ -31,7 +60,10 @@ const styles = StyleSheet.create({
         width:50,
         height: 50,
         borderRadius: 50,
-        marginBottom: 6
+        marginBottom: 8,
+        marginRight: 16,
+        borderWidth: 1,
+        borderColor: '#5848FF',
     },
     
     defaultMarginH: {
@@ -45,15 +77,37 @@ const styles = StyleSheet.create({
     searching: {
         borderStyle: 'solid',
         marginTop: 20,
+        paddingVertical: 8,
+        paddingHorizontal: 16,
+        borderColor: '#5848ff',
+        borderWidth: 2,
+        backgroundColor: 'white',
+        borderRadius: 8,
+        width: 340
     },
     
-    container: {
-        marginVertical: 20,
-        marginHorizontal: 20,
-        width: 158,
-        height: 270,
-        backgroundColor: '#DBE4EB',
-        borderRadius: 8,
+    nameProfile: {
+        fontSize: 20,
+        fontWeight: "bold"
+    },
+
+    fontTitle: {
+        fontSize: 20,
+        fontWeight: 'bold'
+    },
+
+    fontBody: {
+        fontSize: 14,
+    },
+
+    colorPrimary: {
+        color: '#5848FF'
+    },
+
+    favorite: {
+        marginTop: 32,
+        paddingVertical: 8,
+        paddingHorizontal: 16,
     },
 
 })
