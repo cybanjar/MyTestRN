@@ -5,21 +5,25 @@ import ClassComponent from './src/ClassComponent';
 import Photo from './src/Photo';
 import TestStyle from './src/TestStyle';
 import MyScreen from './src/MyScreen';
+import UseState from './src/UseState';
+import Login from './src/pages/login.js';
 
 const App = () => {
   return (
     <View>
       <StatusBar barStyle="default" />
       <SafeAreaView>
-        <ScrollView >
+        {/* <ScrollView > */}
           
           {/* <TestStyle /> */}
           {/* <Photo /> */}
           {/* <ClassComponent /> */}
           {/* <CardStyle /> */}
-          <MyScreen />
+          {/* <MyScreen /> */}
+          {/* <UseState /> */}
+          <Login />
 
-        </ScrollView>
+        {/* </ScrollView> */}
       </SafeAreaView>
     </View>
   );
